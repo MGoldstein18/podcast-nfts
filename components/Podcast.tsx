@@ -12,19 +12,23 @@ import { PodcastData } from '../pages/api/search';
 
 const Podcast = ({ podcast }: { podcast: PodcastData }) => {
   return (
-    <Box p='2rem' shadow='md' borderWidth='3px'>
+    <Box height={'750px'} p='2rem' shadow='md' borderWidth='3px'>
       <Image alt='podcast image' height={'50%'} src={podcast.image} />
 
-      <Text fontWeight={'bold'} fontSize={'20px'} mt='1rem'>
-        {podcast.title}
-      </Text>
-      <Divider />
-      <Text height='200px' fontSize={'16px'} mt='1rem'>
-        {podcast.description.length > 400
-          ? `${podcast.description.substring(0, 400)}...`
+      <Box height={'100px'}>
+        <Text fontWeight={'bold'} fontSize={'20px'} mt='1rem'>
+          {podcast.title.length > 75
+            ? `${podcast.title.substring(0, 75)}...`
+            : podcast.title}
+        </Text>
+        <Divider />
+      </Box>
+      <Text height={'150px'} fontSize={'16px'} mt='1rem'>
+        {podcast.description.length > 150
+          ? `${podcast.description.substring(0, 150)}...`
           : podcast.description}
       </Text>
-      <VStack mt='2rem'>
+      <VStack mt='1rem'>
         <Link
           href={{
             pathname: '/episodes',

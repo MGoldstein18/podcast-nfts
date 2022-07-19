@@ -62,7 +62,7 @@ const Episodes: NextPage = () => {
         </Grid>
       </Container>
       {results.length > 0 ? (
-        <SimpleGrid margin={'3rem'} spacing={2} columns={3}>
+        <SimpleGrid margin={'3rem'} spacing={2} columns={[1, null, 3]}>
           {results.length &&
             results.map((episode) => {
               return (

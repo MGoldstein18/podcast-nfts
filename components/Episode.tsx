@@ -24,6 +24,8 @@ const Episode = ({
 
   const ended = (e: any) => {
     const halfTime = episode.length / 2;
+    console.log('Half time', halfTime);
+    console.log('time listened', timeListened);
     if (timeListened < halfTime - 15) {
       return;
     } else {
@@ -88,7 +90,7 @@ const Episode = ({
 
       <VStack spacing={10} mt='2rem'>
         <ReactAudioPlayer
-          listenInterval={60000}
+          listenInterval={15000}
           onEnded={ended}
           src={episode.audio}
           controls

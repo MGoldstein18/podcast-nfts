@@ -72,12 +72,12 @@ const Home: NextPage = () => {
               borderColor={'darkslategrey'}
               variant={'filled'}
             />
-            <Button onClick={search}>Search Now</Button>
+            <Button disabled={searching} onClick={search}>Search Now</Button>
           </VStack>
         </Center>
       </Container>
       {results.length > 0 ? (
-        <SimpleGrid margin={'3rem'} spacing={2} columns={3}>
+        <SimpleGrid margin={'3rem'} spacing={2} columns={[1, null, 3]}>
           {results.length &&
             results.map((podcast) => {
               return (

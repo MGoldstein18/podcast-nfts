@@ -3,7 +3,7 @@ import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 import { ChakraProvider } from '@chakra-ui/react'
 
 // This is the chainId your dApp will work on.
-const activeChainId = ChainId.Mumbai;
+const activeChainId = ChainId.Polygon;
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

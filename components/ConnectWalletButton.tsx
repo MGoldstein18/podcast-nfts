@@ -16,9 +16,9 @@ const ConnectWalletButton = () => {
     <div>
       {address ? (
         <>
-          {chainId !== ChainId.Mumbai ? (
+          {chainId !== ChainId.Polygon ? (
             <Text textAlign={'center'} color={'red'} fontWeight='bold'>
-              Please connect to the Mumbai Testnet
+              Please connect to Polygon
             </Text>
           ) : (
             <p></p>

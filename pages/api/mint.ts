@@ -30,7 +30,7 @@ export default async function handler(
     return res.status(400).json({ message: 'bad request' });
   }
 
-  const sdk = ThirdwebSDK.fromPrivateKey(key, 'mumbai');
+  const sdk = ThirdwebSDK.fromPrivateKey(key,'polygon');
   const contract = sdk.getNFTCollection(contractAddress);
 
   switch (req.method) {

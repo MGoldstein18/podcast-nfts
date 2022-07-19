@@ -15,7 +15,7 @@ const Episode = ({
   const address = useAddress();
   const connectWithMetamask = useMetamask();
   const nftCollection = useNFTCollection(
-    '0xfc92dc3b7AF0744eCD994C1DB27A4dAe88503Ac5'
+    '0x2dA67Bb03Ac96522746Be9CEF45BC74260531952'
   );
 
   const [timeListened, setTimeListened] = useState(0);
@@ -24,8 +24,6 @@ const Episode = ({
 
   const ended = (e: any) => {
     const halfTime = episode.length / 2;
-    console.log('Half time', halfTime);
-    console.log('time listened', timeListened);
     if (timeListened < halfTime - 15) {
       return;
     } else {
@@ -40,6 +38,7 @@ const Episode = ({
       return;
     } else {
       try {
+        console.log('try');
         const response = await fetch('/api/mint', {
           method: 'POST',
           headers: {
@@ -48,7 +47,6 @@ const Episode = ({
           body: JSON.stringify({ episode, address, title })
         });
         const data = await response.json();
-        console.log('Reponse Data -->>', data);
 
         if (response && response.status !== 400) {
           connectWithMetamask;
@@ -58,6 +56,7 @@ const Episode = ({
           };
 
           await nftCollection?.signature.mint(mintInput);
+
           setLoading(false);
           alert('NFT successfully minted!');
         }
@@ -95,6 +94,7 @@ const Episode = ({
           src={episode.audio}
           controls
           onListen={countTime}
+          style={{ height: '50px', width: '80%' }}
         />
         <VStack>
           {loading ? (

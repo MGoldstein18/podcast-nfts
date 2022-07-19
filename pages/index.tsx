@@ -36,7 +36,6 @@ const Home: NextPage = () => {
         body: JSON.stringify({ searchPhrase })
       });
       const data = await response.json();
-      console.log('Reponse Data -->>', data);
       setResults(data);
     } catch (error) {
       console.error(error);
